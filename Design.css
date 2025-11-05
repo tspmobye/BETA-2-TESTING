@@ -235,7 +235,7 @@ body {
   }
 }
 
-`/* ABOUT SECTION */
+/* ABOUT SECTION */
 .about-container {
   display: flex;
   flex-wrap: wrap;
@@ -259,7 +259,7 @@ body {
 .about-subtitle {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #1E73BE; /* same blue tone as the image */
+  color: #1E73BE;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -269,4 +269,5 @@ body {
   line-height: 1.8;
   text-align: justify;
   color: #222;
-}`
+}
+
