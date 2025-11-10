@@ -32,6 +32,7 @@ body {
   align-items: flex-start;
   padding: 120px 40px 40px;
   background: white;
+  margin-top: 40px
 }
 
 .home-container {
@@ -478,6 +479,7 @@ body {
   .subtitle { font-size: 1rem; }
   .faq-section h1 { font-size: 1.5rem; }
 }
+
 
 
 
