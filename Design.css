@@ -1,82 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  overflow-x: hidden;
+}
+
 :root {
-  --blue1: #77b9f0;
-  --blue2: #2c8fe0;
-  --blue3: #0d6fbf;
   --nav-height: 90px;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  background: white;
-  overflow-x: hidden;
-  min-width: 900px;
-  color: #222;
-}
-
-/* PAGE WRAPPER */
 .page {
-  position: relative;
-  padding: var(--nav-height) 80px 0;
+  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* NAVIGATION */
 .topnav {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px 80px;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: var(--nav-height);
   background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 60px;
   z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo img {
-  width: 50px;
-  height: 50px;
+  height: 45px;
 }
 
 .brand {
   font-weight: 700;
   font-size: 1.1rem;
-  color: var(--blue3);
+  color: #0d6fbf;
 }
 
 .menu {
   display: flex;
   gap: 15px;
-  margin-left: 30px;
 }
 
 .menu button {
   background: none;
   border: none;
+  padding: 8px 14px;
   font-weight: 600;
   cursor: pointer;
-  color: #0b1220;
   font-size: 0.95rem;
-  padding: 5px 10px;
-  border-radius: 6px;
-  transition: 0.3s;
 }
 
 .menu button.active,
 .menu button:hover {
-  background: var(--blue2);
+  background: #2c8fe0;
   color: white;
+  border-radius: 6px;
 }
 
-/* SEARCH BAR */
 .search-wrap {
   margin-left: auto;
 }
@@ -84,26 +83,31 @@ body {
 .search {
   display: flex;
   align-items: center;
-  background: white;
-  border-radius: 8px;
   padding: 6px 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .search input {
   border: none;
   outline: none;
-  font-weight: 500;
-  width: 200px;
+  width: 180px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* HOME SECTION */
+.section {
+  display: none;
+  padding: 40px 8% 120px;
+  text-align: center;
+}
+
+.section.active {
+  display: block;
+}
+
 #home {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background: white;
-  padding: 30px 10%;
+  padding-top: 30px;
 }
 
 .home-container {
@@ -115,84 +119,74 @@ body {
 .welcome {
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--blue2);
-  letter-spacing: 1px;
+  color: #2c8fe0;
   margin: 20px 0 8px;
-  line-height: 1.2;
 }
 
 .archive {
   font-size: 4rem;
   font-weight: 800;
-  color: var(--blue3);
-  line-height: 1.2;
-  margin: 0 0 12px;
+  color: #0d6fbf;
+  margin-bottom: 12px;
 }
 
 .subtitle {
   font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--blue2);
-  margin: 0;
+  color: #2c8fe0;
 }
 
-/* SECTIONS */
-.section {
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  padding: 40px 0 120px;
+.carousel-container {
+  margin-top: 40px;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.club-card {
+  min-width: 250px;
+  padding: 30px;
+  background: #f8f9fa;
   text-align: center;
 }
 
-.section.active {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* ABOUT SECTION */
 .about-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   gap: 50px;
   padding: 20px 10%;
 }
 
 .about-left,
 .about-right {
-  flex: 1 1 45%;
-  min-width: 300px;
+  flex: 1;
   text-align: left;
 }
 
 .about-title {
   font-size: 1.8rem;
   font-weight: 800;
-  color: black;
-  margin-bottom: 0.5rem;
 }
 
 .about-subtitle {
   font-size: 2.5rem;
   font-weight: 800;
   color: #1E73BE;
-  margin-top: 0;
-  margin-bottom: 1rem;
 }
 
-/* CLUB GRID */
 .clubs-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  margin-top: 10px;
-  margin-bottom: 100px;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .club {
@@ -201,25 +195,62 @@ body {
   cursor: pointer;
 }
 
-/* FAQ */
+.hero-title {
+  margin-bottom: 10px;
+}
+
+.adviser {
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.lead {
+  margin-bottom: 14px;
+}
+
+.back-btn {
+  margin-top: 30px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: #2c8fe0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
 .faq-page {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 80px;
-  flex-wrap: wrap;
-  text-align: left;
   padding: 20px 10%;
+  text-align: left;
 }
 
 .faq-section h1 {
-  color: var(--blue3);
-  text-transform: uppercase;
-  font-size: 2rem;
   margin-bottom: 20px;
 }
 
-/* GMAIL ICON */
+.faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.question {
+  width: 100%;
+  text-align: left;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.answer {
+  display: none;
+  padding: 0 0 10px;
+}
+
+.answer.open {
+  display: block;
+}
+
 .gmail-tooltip {
   position: fixed;
   bottom: 25px;
@@ -228,9 +259,40 @@ body {
 
 .gmail-tooltip img {
   width: 55px;
-  height: 55px;
   border-radius: 50%;
-  border: 2px solid var(--blue2);
-  background: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 70px;
+  }
+
+  .topnav {
+    padding: 10px 20px;
+  }
+
+  .page {
+    padding-top: var(--nav-height);
+  }
+
+  .section {
+    padding: 30px 6% 80px;
+  }
+
+  .archive {
+    font-size: 2.6rem;
+  }
+
+  .welcome {
+    font-size: 1.4rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .search input {
+    width: 120px;
+    font-size: 0.85rem;
+  }
 }
