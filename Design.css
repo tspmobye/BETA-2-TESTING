@@ -350,6 +350,11 @@ html, body {
   margin-bottom: 15px;
 }
 
+.album h3 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
 .album-box {
   width: 110px;
   height: 150px;
@@ -374,4 +379,5 @@ html, body {
 .programs-list li {
   margin-bottom: 6px;
 }
+
 
