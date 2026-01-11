@@ -84,7 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // BACK BUTTONS
   document.body.addEventListener("click", e => {
-    if (e.target.classList.contains("back-btn")) {
+    if (
+      e.target.classList.contains("back-btn") ||
+      e.target.classList.contains("theatre-back")
+    ) {
       e.preventDefault();
       showSection("clubs");
     }
