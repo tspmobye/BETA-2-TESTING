@@ -71,6 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
     club.addEventListener("click", () => showSection(club.dataset.page))
   );
 
+  // FOR SEARCH
+  function showSection(id) {
+  sections.forEach(sec => {
+    sec.style.display = sec.id === id ? "block" : "none";
+  });
+  }
+  
   // SEARCH (CLUB PAGE / RESULTS / NO RESULTS)
   if (searchForm && searchInput) {
     searchForm.addEventListener("submit", e => {
@@ -206,4 +213,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // INIT
   showSection("home");
 });
+
 
