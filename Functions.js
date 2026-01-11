@@ -1,14 +1,16 @@
-// CORE
 document.addEventListener("DOMContentLoaded", () => {
+  // CORE
   const buttons = document.querySelectorAll(".menu button");
   const sections = document.querySelectorAll(".section");
   const clubs = document.querySelectorAll(".club");
   const searchForm = document.getElementById("searchForm");
   const searchInput = document.getElementById("searchInput");
 
-  const noResultsSection = document.getElementById("no-results");
-  const searchTermSpan = document.getElementById("search-term");
+  const resultsGrid = document.getElementById("results-grid");
+  const resultsTerm = document.getElementById("results-term");
+  const noResultsTerm = document.getElementById("search-term");
 
+  // CAROUSEL
   const track = document.querySelector(".carousel-track");
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
@@ -17,15 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let carouselIndex = 0;
   let carouselInterval = null;
 
-  // CAROUSEL
   function moveCarousel() {
-    if (!document.getElementById("home").classList.contains("active")) return;
-    const cardWidth = cards[0]?.offsetWidth || 0;
+    if (!document.getElementById("home")?.classList.contains("active")) return;
+    if (!cards.length) return;
+
+    const cardWidth = cards[0].offsetWidth;
     track.style.transform = `translateX(-${carouselIndex * cardWidth}px)`;
   }
 
   function startCarousel() {
     if (!track || !cards.length) return;
+
     stopCarousel();
     carouselInterval = setInterval(() => {
       carouselIndex = (carouselIndex + 1) % cards.length;
@@ -40,15 +44,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // SECTIONS
+  // SECTION CONTROL
   function showSection(id) {
     sections.forEach(section => {
       section.classList.toggle("active", section.id === id);
     });
 
-    buttons.forEach(btn =>
-      btn.classList.toggle("active", btn.dataset.page === id)
-    );
+    buttons.forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.page === id);
+    });
 
     window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -61,24 +65,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // NAVIGATION
-  buttons.forEach(btn =>
-    btn.addEventListener("click", () => showSection(btn.dataset.page))
-  );
-
-  // CLUBS
-  clubs.forEach(club =>
-    club.addEventListener("click", () => showSection(club.dataset.page))
-  );
-
-  // FOR SEARCH
-  function showSection(id) {
-  sections.forEach(sec => {
-    sec.style.display = sec.id === id ? "block" : "none";
+  // NAVIGATION BUTTONS
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      showSection(btn.dataset.page);
+    });
   });
-  }
-  
-  // SEARCH (CLUB PAGE / RESULTS / NO RESULTS)
+
+  // CLUB GRID CLICKS
+  clubs.forEach(club => {
+    club.addEventListener("click", () => {
+      showSection(club.dataset.page);
+    });
+  });
+
+  // SEARCH
   if (searchForm && searchInput) {
     searchForm.addEventListener("submit", e => {
       e.preventDefault();
@@ -86,11 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const query = searchInput.value.trim().toLowerCase();
       if (!query) return;
 
-      const resultsGrid = document.getElementById("results-grid");
-      const resultsTerm = document.getElementById("results-term");
-      const noResultsTerm = document.getElementById("search-term");
-
-      // 1️⃣ Exact section match (direct club page)
+      // 1️⃣ Exact section match (theatre, serviam, etc.)
       const exactSection = Array.from(sections).find(
         sec => sec.id.toLowerCase() === query
       );
@@ -101,12 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // 2️⃣ Match clubs by displayed name
+      // 2️⃣ Club name match
       const matchedClubs = Array.from(clubs).filter(club =>
         club.textContent.toLowerCase().includes(query)
       );
 
-      if (matchedClubs.length > 0) {
+      if (matchedClubs.length > 0 && resultsGrid && resultsTerm) {
         resultsGrid.innerHTML = "";
         resultsTerm.textContent = query;
 
@@ -123,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showSection("search-results");
       } else {
         // 3️⃣ No results
-        noResultsTerm.textContent = query;
+        if (noResultsTerm) noResultsTerm.textContent = query;
         showSection("no-results");
       }
 
@@ -175,43 +172,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const gmailIcon = document.querySelector(".gmail-tooltip img");
   if (gmailIcon) {
     gmailIcon.addEventListener("click", () => {
-      const email = "example@gmail.com";
-      window.location.href = `mailto:${email}`;
-    });
-  }
-
-  // INIT
-  showSection("home");
-});      carouselIndex = (carouselIndex + 1) % cards.length;
-      moveCarousel();
-    });
-
-    window.addEventListener("resize", () => {
-      if (document.getElementById("home").classList.contains("active")) {
-        moveCarousel();
-      }
-    });
-  }
-
-  // FAQS
-  document.querySelectorAll(".question").forEach(q => {
-    q.addEventListener("click", () => {
-      q.classList.toggle("active");
-      q.nextElementSibling.classList.toggle("open");
-    });
-  });
-
-  // GMAIL
-  const gmailIcon = document.querySelector(".gmail-tooltip img");
-  if (gmailIcon) {
-    gmailIcon.addEventListener("click", () => {
-      const email = "example@gmail.com";
-      window.location.href = `mailto:${email}`;
+      window.location.href = "mailto:club.archive@gmail.com";
     });
   }
 
   // INIT
   showSection("home");
 });
-
-
