@@ -317,7 +317,7 @@ html, body {
 
 /* THEATRE */
 .theatre-page {
-  text-align: center;
+  text-align: left;
 }
 
 .theatre-back {
@@ -415,4 +415,5 @@ html, body {
   width: 55px;
   border-radius: 50%;
 }
+
 
