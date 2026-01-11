@@ -1,348 +1,174 @@
+<!-- DOCUMENT -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- META -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Club Archive | BTTHS</title>
+  <meta name="viewport" content="width=1200">
+  <title>Club Archive</title>
+
+  <!-- STYLES -->
   <link rel="stylesheet" href="Design.css">
 </head>
+
 <body>
+  <!-- PAGE -->
   <div class="page">
 
-  <!-- NAVIGATION -->
-  <div class="topnav">
-    <div class="logo">
-      <img src="images/triangle.png" alt="Triangle Logo">
-      <span class="brand">ClubArchive.com</span>
-    </div>
-    <nav class="menu">
-      <button data-page="home" class="active">Home</button>
-      <button data-page="about">About</button>
-      <button data-page="clubs">Clubs</button>
-      <button data-page="faqs">FAQs</button>
-    </nav>
-    <div class="search-wrap">
-      <form id="searchForm" class="search">
-        <input id="searchInput" type="text" placeholder="Search a club...">
-      </form>
-    </div>
-  </div>
+    <!-- NAVBAR -->
+    <div class="topnav">
+      <div class="logo">
+        <img src="images/triangle.png" alt="Logo">
+        <span class="brand">ClubArchive.com</span>
+      </div>
 
-  <!-- HOME -->
-  <section id="home" class="section active">
-    <div class="home-container">
-      <h2 class="welcome">WELCOME TO</h2>
-      <h1 class="archive">CLUB ARCHIVE</h1>
-      <p class="subtitle">A collection ready to be explored!</p>
+      <nav class="menu">
+        <button data-page="home" class="active">Home</button>
+        <button data-page="about">About</button>
+        <button data-page="clubs">Clubs</button>
+        <button data-page="faqs">FAQs</button>
+      </nav>
+
+      <div class="search-wrap">
+        <form id="searchForm" class="search">
+          <input id="searchInput" type="text" placeholder="Search a club...">
+        </form>
+      </div>
     </div>
 
-    <!-- CLUBS GALLERY CAROUSEL -->
-    <div class="carousel-container">
-        <h3>Featured Clubs</h3>
+    <!-- HOME -->
+    <section id="home" class="section active">
+      <div class="home-container">
+        <h2 class="welcome">WELCOME TO</h2>
+        <h1 class="archive">CLUB ARCHIVE</h1>
+        <p class="subtitle">A collection ready to be explored!</p>
+      </div>
+
+      <div class="carousel-container">
         <div class="carousel">
           <button class="carousel-btn prev">&#10094;</button>
+
           <div class="carousel-track">
             <div class="club-card">
-              <img src="https://via.placeholder.com/150" alt="SCO">
+              <img src="https://via.placeholder.com/150">
               <h4>SCO</h4>
               <p>Per sevire sevire.</p>
             </div>
+
             <div class="club-card">
-              <img src="https://via.placeholder.com/150" alt="Serviam">
+              <img src="https://via.placeholder.com/150">
               <h4>Serviam</h4>
-              <p>A club that embodies service, leadership, and compassion.</p>
+              <p>Service and leadership.</p>
             </div>
+
             <div class="club-card">
-              <img src="https://via.placeholder.com/150" alt="Theatre Guild">
-              <h4>Theatre Guild</h4>
-              <p>A creative community that brings together students passionate about acting, directing, and stage production.</p>
+              <img src="https://via.placeholder.com/150">
+              <h4>Theatre</h4>
+              <p>Performance and creativity.</p>
             </div>
+
             <div class="club-card">
-              <img src="https://via.placeholder.com/150" alt="Clarion">
+              <img src="https://via.placeholder.com/150">
               <h4>Clarion</h4>
-              <p>Formulated to enhance the writing skills of every individual as the school's newspaper.</p>
+              <p>Writing and journalism.</p>
             </div>
           </div>
+
           <button class="carousel-btn next">&#10095;</button>
         </div>
       </div>
-</section>
+    </section>
 
     <!-- ABOUT -->
     <section id="about" class="section">
-         <div class="about-container">
+      <div class="about-container">
+        <div class="about-left">
+          <h2 class="about-title">About</h2>
+          <h1 class="about-subtitle">Club Archive</h1>
+        </div>
 
-    <!-- LEFT: ABOUT US -->
-    <div class="about-left">
-      <h2 class="about-title">ABOUT US</h2>
-      <h3 class="about-subtitle">CLUB ARCHIVE</h3>
-      <p>is a website specifically designed to aid students who struggle with navigating clubs found in Bacolod Tay Tung Highschool.</p>
-      <p>It aims to provide detailed information and help students locate their desired clubs with minimal to no trouble.</p>
-    </div>
-
-    <!-- RIGHT: THE DEVELOPERS -->
-    <div class="about-right">
-      <h2 class="about-title">WHO ARE WE?</h2>
-      <h3 class="about-subtitle">THE DEVELOPERS</h3>
-      <p>We are a team of grade 10 programming students, learning how to create a website through coding with the use of the coding language “HTML” and “CSS” for our IPT.</p>
-      <p>We dedicate this website for those that are struggling with information about different clubs.</p>
+        <div class="about-right">
+          <p>
+            Club Archive is a centralized place to explore and learn about student organizations.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-	  
-    <!-- CLUBS PAGE -->
+    </section>
+
+    <!-- CLUBS -->
     <section id="clubs" class="section">
-      <h2 class="hero-title">All Clubs</h2>
       <div class="clubs-grid">
-        <div class="club" data-page="aikido"><div class="avatar"><img src="images/aikido.png" alt=""></div><h3>Aikido Club</h3></div>
-        <div class="club" data-page="armonia"><div class="avatar"><img src="images/armonia.png" alt=""></div><h3>Armonia</h3></div>
-        <div class="club" data-page="booklovers"><div class="avatar"><img src="images/booklovers.png" alt=""></div><h3>Book Lovers Club</h3></div>
-        <div class="club" data-page="chef"><div class="avatar"><img src="images/chef.png" alt=""></div><h3>CHEFS</h3></div>
-        <div class="club" data-page="clarion"><div class="avatar"><img src="images/clarion.png" alt=""></div><h3>Clarion</h3></div>
-        <div class="club" data-page="curiousmind"><div class="avatar"><img src="images/curiousmind.png" alt=""></div><h3>Curious Mind Society</h3></div>
-        <div class="club" data-page="dancesynergy"><div class="avatar"><img src="images/dancysynergy.png" alt=""></div><h3>Dance Synergy</h3></div>
-        <div class="club" data-page="eureka"><div class="avatar"><img src="images/eureka.png" alt=""></div><h3>Eureka!</h3></div>
-        <div class="club" data-page="researchhive"><div class="avatar"><img src="images/researchhive.png" alt=""></div><h3>Research Hive</h3></div>
-        <div class="club" data-page="scobuddies"><div class="avatar"><img src="images/scobuddies.png" alt=""></div><h3>SCO Buddies</h3></div>
-        <div class="club" data-page="serviam"><div class="avatar"><img src="images/serviam.png" alt=""></div><h3>Serviam Club</h3></div>
-        <div class="club" data-page="taytungvoices"><div class="avatar"><img src="images/taytungvoices.png" alt=""></div><h3>Tay Tung Voices</h3></div>
-        <div class="club" data-page="theatre"><div class="avatar"><img src="images/theatre.png" alt=""></div><h3>Theatre Guild</h3></div>
-        <div class="club" data-page="youngdesigners"><div class="avatar"><img src="images/youngdesigners.png" alt=""></div><h3>Young Designers Club</h3></div>
+        <div class="club" data-page="theatre">
+          <div class="avatar">
+            <img src="https://via.placeholder.com/120">
+          </div>
+          <h4>Theatre</h4>
+        </div>
       </div>
     </section>
 
-    <!-- 🥋 Aikido Club -->
-    <section id="aikido" class="section">
-      <h2 class="hero-title">合氣道 (Aikido Club)</h2>
-      <p class="adviser">Club Adviser – Gelkoff A. Calmerin</p>
-      <p class="lead">The Tay Tung Aikido Club is a martial arts club inspired by the philosophy of Harmony. Aikido directly translates as The Way of Harmony.</p>
-      <p class="lead"><strong>Rules</strong><br>
-      Attend all scheduled training unless with a valid excuse. Always observe proper hygiene. Always clean and take care of Dojo, equipment, and uniform. Respect everyone. Extend discipline beyond the Dojo.</p>
-      <p class="lead"><strong>Programs</strong><br>
-      Keiko (basic training), Zazen (meditation), Ashi sabaki (footwork), Ukemi (breakfall), Tachi waza (standing techniques), Suwari waza (seated techniques), Hanmi handachi waza (seated vs standing), Randori (freestyle), Ken-Jo Suburi and Kata (sword/staff training), Kyu exams, and Martial Arts Seminars.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
+    <!-- THEATRE -->
+    <section id="theatre" class="section theatre-page">
+      <button class="theatre-back back-btn">← Back</button>
 
-    <!-- 🎵 Armonia -->
-    <section id="armonia" class="section">
-      <h2 class="hero-title">Armonia</h2>
-      <p class="adviser">Club Adviser – Harold Christian G. Montoya</p>
-      <p class="lead">The Armonia Music Club provides dedicated student musicians a space to explore and enhance their musical talents beyond the classroom. "Armonia" means harmony, reflecting the club’s goal of nurturing skill, teamwork, and expression.</p>
-      <p class="lead"><strong>Rules</strong><br>
-      Attend all rehearsals and performances unless excused. Maintain instruments and respect mentors. Be punctual and prepared. Practice regularly and support one another.</p>
-      <p class="lead"><strong>Programs</strong><br>
-      Music creation, rehearsals, performance engagements, collaboration, and workshops in songwriting, harmony, and stage performance.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 📚 Book Lovers -->
-    <section id="booklovers" class="section">
-      <h2 class="hero-title">Book Lovers Club</h2>
-      <p class="adviser">Club Advisers – Mrs. Mary Jane M. Zarceno, Mrs. Yulita Q. Suarez</p>
-      <p class="lead">A community of students who share a passion for reading, discussing books, and integrating craftsmanship. It fosters intellectual growth and creativity through reading and art.</p>
-      <p class="lead"><strong>Rules</strong><br>
-      Be respectful, take turns, be kind, handle books with care, come prepared, and participate fully.</p>
-      <p class="lead"><strong>Programs</strong><br>
-      Read-Aloud Sessions, Book Talks, Silent Reading, Book-Themed Crafts, Story Retelling, Puppet Shows, Bulletin Board, Author Spotlights, Book Swaps, and Library Visits.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 🍰 CHEFS -->
-    <section id="chef" class="section">
-      <h2 class="hero-title">CHEFS (Creative Hands Exploring Foods and Sweets)</h2>
-      <p class="adviser">Club Adviser – Mrs. Angela D. Dumay, LPT<br>Assistant Adviser – Ms. Ma. Catherine B. Llanto, LPT</p>
-      <p class="lead">The CHEFS Club allows young learners to explore baking. It’s a fun space where Grades 4–6 students develop creativity and life skills through hands-on baking.</p>
-      <p class="lead"><strong>Rules</strong><br>
-      Attend all meetings, observe cleanliness, respect others, share tools, clean up, and handle equipment safely.</p>
-      <p class="lead"><strong>Programs</strong><br>
-      Weekly baking sessions, “Sweet Treats Day”, mini bake-offs, guest demos, and holiday-themed baking events.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 🧩 Clarion -->
-    <section id="clarion" class="section">
-      <h2 class="hero-title">Clarion</h2>
-      <p class="adviser">Club Adviser – Details to be added soon</p>
-      <p class="lead">Details to be added soon.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 🧠 Curious Mind Society -->
-    <section id="curiousmind" class="section">
-      <h2 class="hero-title">Curious Mind Society</h2>
-      <p class="adviser">Club Adviser – Details to be added soon</p>
-      <p class="lead">Details to be added soon.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 💃 Dance Synergy -->
-    <section id="dancesynergy" class="section">
-      <h2 class="hero-title">Dance Synergy</h2>
-      <p class="adviser">Club Adviser – Mina Retita-Uhlmann</p>
-      <p class="lead">The Dance Synergy Club unites students passionate about dancing. It promotes self-expression, teamwork, and performance through various dance styles.</p>
-      <p class="lead"><strong>Rules</strong><br>
-      Attend practices, respect everyone, listen, perform your best, and wear proper attire.</p>
-      <p class="lead"><strong>Programs</strong><br>
-      Basic dance workshops, fitness sessions, and showcases.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 🔬 Eureka! -->
-    <section id="eureka" class="section">
-      <h2 class="hero-title">Eureka!</h2>
-      <p class="adviser">Club Adviser – Mr. Christian Castro</p>
-      <p class="lead">Eureka! Science Club fosters a love for science through hands-on experiments, environmental activities, and outreach programs.</p>
-      <p class="lead"><strong>Rules</strong><br>
-      Respect everyone, participate actively, and be punctual.</p>
-      <p class="lead"><strong>Programs</strong><br>
-      Tree planting, clean-ups, medical missions, outreach, beautification, and science trips.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 💡 Research Hive -->
-    <section id="researchhive" class="section">
-      <h2 class="hero-title">Research Hive</h2>
-      <p class="adviser">Club Adviser – Details to be added soon</p>
-      <p class="lead">Details to be added soon.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 🤝 SCO Buddies -->
-    <section id="scobuddies" class="section">
-      <h2 class="hero-title">SCO Buddies</h2>
-      <p class="adviser">Club Adviser – Details to be added soon</p>
-      <p class="lead">Details to be added soon.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 💛 Serviam Club -->
-    <section id="serviam" class="section">
-      <h2 class="hero-title">BTTHS Serviam Club</h2>
-      <p class="adviser">Club Adviser – Danny Israel G. Saloria</p>
-      <p class="lead">A club that embodies service, leadership, and compassion — true to the value of Great Harmony (大同).</p>
-      <p class="lead"><strong>Rules</strong><br>
-      Members must participate, be punctual, communicate responsibly, and uphold integrity and respect.</p>
-      <p class="lead"><strong>Programs</strong><br>
-      Serviam Encounter, Pagdihon Formation Series, Project Yuhom, Work Camps, Quests, and Community Involvement.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 🎤 Tay Tung Voices -->
-    <section id="taytungvoices" class="section">
-      <h2 class="hero-title">Tay Tung Voices</h2>
-      <p class="adviser">Club Adviser – Details to be added soon</p>
-      <p class="lead">Details to be added soon.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
-    </section>
-
-    <!-- 🎭 Theatre -->
-    <section id="theatre" class="section">
-  <button class="theatre-back">← Back</button>
-
-  <div class="theatre-hero">
-    <h2 class="hero-title">THEATRE</h2>
-    <p class="lead">A club built for the arts</p>
-  </div>
-
-  <div class="theatre-content">
-    <div>
-      <h3>Album</h3>
-      <div class="album-grid">
-        <div class="album-box"></div>
-        <div class="album-box"></div>
+      <div class="theatre-hero">
+        <h2 class="hero-title">THEATRE</h2>
+        <p class="lead">A club built for the arts</p>
       </div>
-    </div>
 
-    <div>
-      <h3>Rules</h3>
-      <ol class="rules-list">
-        <li>Show up on time</li>
-        <li>Attend all meetings</li>
-      </ol>
-    </div>
+      <div class="theatre-content">
+        <div>
+          <h3>Album</h3>
+          <div class="album-grid">
+            <div class="album-box"></div>
+            <div class="album-box"></div>
+          </div>
+        </div>
 
-    <div>
-      <h3>Programs</h3>
-      <ul class="programs-list">
-        <li>Arts and crafts</li>
-        <li>Acting</li>
-        <li>Tech work</li>
-      </ul>
-    </div>
-  </div>
-	</section>
+        <div>
+          <h3>Rules</h3>
+          <ol class="rules-list">
+            <li>Be respectful</li>
+            <li>Attend meetings</li>
+          </ol>
+        </div>
 
-    <!-- 🧵 Young Designers -->
-    <section id="youngdesigners" class="section">
-      <h2 class="hero-title">Young Designers Club</h2>
-      <p class="adviser">Club Adviser – Mina Retita-Uhlmann</p>
-      <p class="lead">A creative space for Grades 4–12 students who love design and innovation, guided by the principles of creativity and social impact.</p>
-      <p class="lead"><strong>Rules</strong><br>
-      Members must commit, follow BTTHS regulations, and participate in DRILL programs.</p>
-      <p class="lead"><strong>Programs</strong><br>
-      Design sprints, maker projects, skill workshops, outreach initiatives, and exhibitions.</p>
-      <button class="back-btn">← Back to Clubs Page</button>
+        <div>
+          <h3>Programs</h3>
+          <ul class="programs-list">
+            <li>Acting</li>
+            <li>Stage crew</li>
+            <li>Workshops</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- ❓ FAQ -->
-    <section id="faqs" class="section">
-  <main class="faq-page">
-    <section class="faq-section">
-      <h1>Frequently Asked Questions</h1>
+    <!-- FAQS -->
+    <section id="faqs" class="section faq-page">
+      <div class="faq-section">
+        <h1>FAQs</h1>
 
-      <input type="text" class="search" placeholder="What are you looking for?">
-
-      <div class="faq">
         <div class="faq-item">
           <button class="question">How do I join a club?</button>
-          <div class="answer">
-            <p>To join a club, you can approach your preferred club’s adviser or check your school’s club sign-up form.</p>
-          </div>
+          <div class="answer">Contact the club adviser.</div>
         </div>
 
         <div class="faq-item">
-          <button class="question active">Am I required to join a club?</button>
-          <div class="answer open">
-            <p><strong>Yes.</strong> As announced by Mrs. Jhona Mae Cabasan, Head of Student Affairs, 
-            all students are required a maximum of one (1) club with exceptions for student athletes 
-            and those with appointed roles in more than one club (executives, officers, editorial staff).</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="question">How do I find my club adviser?</button>
-          <div class="answer">
-            <p>You can ask your classroom adviser or visit the student affairs office for your club adviser list.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="question">How many clubs can I join?</button>
-          <div class="answer">
-            <p>Students can join one (1) club only unless given special permission by the administration.</p>
-          </div>
+          <button class="question">Are clubs free?</button>
+          <div class="answer">Most clubs are free to join.</div>
         </div>
       </div>
     </section>
 
-    <aside class="contact">
-      <p class="hint">Can't find what you're looking for?</p>
-      <p><strong>Contact us.</strong></p>
-      <p class="email">club.archive@gmail.com</p>
-    </aside>
-  </main>
-	</section>
-	  
-  <!-- GMAIL ICON -->
-  <div class="gmail-tooltip">
-    <img src="images/gmail.png" alt="Gmail Icon">
+    <!-- GMAIL -->
+    <div class="gmail-tooltip">
+      <img src="images/gmail.png" alt="Gmail">
+    </div>
+
   </div>
 
+  <!-- SCRIPT -->
   <script src="Functions.js"></script>
 </body>
 </html>
-
-
-
-
-
