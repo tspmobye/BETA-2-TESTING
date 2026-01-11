@@ -260,6 +260,7 @@ html, body {
   border: none;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
+  text-align: left;
 }
 
 .faq-page {
@@ -373,3 +374,4 @@ html, body {
 .programs-list li {
   margin-bottom: 6px;
 }
+
