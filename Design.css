@@ -114,10 +114,12 @@ html, body {
   display: none;
   padding: 40px 8% 120px;
   text-align: center;
+  pointer-events: auto;
 }
 
 .section.active {
   display: block;
+  pointer-events: auto;
 }
 
 /* HOME */
@@ -423,6 +425,7 @@ html, body {
   width: 55px;
   border-radius: 50%;
 }
+
 
 
 
