@@ -1,11 +1,14 @@
+/* IMPORTS */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BASE */
 html, body {
   width: 100%;
   font-family: 'Poppins', sans-serif;
@@ -13,6 +16,7 @@ html, body {
   overflow-x: hidden;
 }
 
+/* VARIABLES */
 :root {
   --nav-height: 90px;
   --blue1: #77b9f0;
@@ -20,17 +24,16 @@ html, body {
   --blue3: #0d6fbf;
 }
 
+/* PAGE */
 .page {
   padding-top: var(--nav-height);
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
 }
 
+/* NAVBAR */
 .topnav {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 20px;
   padding: 26px 80px;
   position: fixed;
@@ -56,7 +59,6 @@ html, body {
   font-weight: 700;
   font-size: 1.15rem;
   color: var(--blue3);
-  margin-top: 4px;
 }
 
 .menu {
@@ -71,9 +73,7 @@ html, body {
   padding: 8px 14px;
   font-weight: 600;
   cursor: pointer;
-  font-size: 0.95rem;
   border-radius: 6px;
-  transition: 0.3s;
 }
 
 .menu button.active,
@@ -82,13 +82,13 @@ html, body {
   color: white;
 }
 
+/* SEARCH */
 .search-wrap {
   margin-left: auto;
 }
 
 .search {
   display: flex;
-  align-items: center;
   padding: 6px 12px;
   border-radius: 8px;
   background: white;
@@ -99,9 +99,9 @@ html, body {
   border: none;
   outline: none;
   width: 180px;
-  font-family: 'Poppins', sans-serif;
 }
 
+/* SECTIONS */
 .section {
   display: none;
   padding: 40px 8% 120px;
@@ -112,10 +112,7 @@ html, body {
   display: block;
 }
 
-#home {
-  padding-top: 30px;
-}
-
+/* HOME */
 .home-container {
   text-align: left;
   max-width: 700px;
@@ -126,14 +123,12 @@ html, body {
   font-size: 1.8rem;
   font-weight: 800;
   color: var(--blue2);
-  margin: 20px 0 8px;
 }
 
 .archive {
   font-size: 4rem;
   font-weight: 800;
   color: var(--blue3);
-  margin-bottom: 12px;
 }
 
 .subtitle {
@@ -141,20 +136,23 @@ html, body {
   color: var(--blue2);
 }
 
-.carousel-container {
-  margin-top: 40px;
-}
-
+/* CAROUSEL */
 .carousel {
   display: flex;
   align-items: center;
   overflow: hidden;
-  border-radius: 20px;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
+}
+
+.carousel-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .club-card {
@@ -167,24 +165,14 @@ html, body {
 .club-card img {
   width: 150px;
   height: 150px;
-  object-fit: cover;
   border-radius: 50%;
   margin-bottom: 15px;
 }
 
-.club-card h4 {
-  margin: 10px 0;
-  color: #000;
-}
-
-.club-card p {
-  color: #555;
-}
-
+/* ABOUT */
 .about-container {
   display: flex;
   gap: 50px;
-  padding: 20px 10%;
 }
 
 .about-left,
@@ -201,128 +189,55 @@ html, body {
 .about-subtitle {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #1E73BE;
+  color: var(--blue3);
 }
 
+/* CLUBS GRID */
 .clubs-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  margin-top: 10px;
-  margin-bottom: 100px;
   justify-content: center;
 }
 
 .club {
   width: 180px;
-  text-align: center;
   cursor: pointer;
 }
 
-.club .avatar {
+.avatar {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   background: var(--blue1);
   margin: 0 auto 10px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.club .avatar img {
+.avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
 }
 
-.club .avatar:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(44, 143, 224, 0.45);
-}
-
-.hero-title {
-  margin-bottom: 10px;
-}
-
-.adviser {
-  margin-bottom: 10px;
-  font-style: italic;
-}
-
-.lead {
-  margin-bottom: 14px;
-}
-
+/* BACK BUTTON */
 .back-btn {
   margin-top: 30px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  text-align: left;
-}
-
-.faq-page {
-  padding: 20px 10%;
-  text-align: left;
-}
-
-.faq-section h1 {
-  margin-bottom: 20px;
-}
-
-.faq-item {
-  border-bottom: 1px solid #ddd;
-}
-
-.question {
-  width: 100%;
-  text-align: left;
-  padding: 12px 0;
   background: none;
   border: none;
   font-weight: 600;
   cursor: pointer;
 }
 
-.answer {
-  display: none;
-  padding: 0 0 10px;
-}
-
-.answer.open {
-  display: block;
-}
-
-.gmail-tooltip {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-}
-
-.gmail-tooltip img {
-  width: 55px;
-  border-radius: 50%;
-}
-
+/* THEATRE */
 .theatre-page {
   text-align: left;
 }
 
-.theatre-back {
-  background: none;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
 .theatre-hero {
   background: var(--blue2);
-  padding: 50px 20px;
+  padding: 50px;
   border-radius: 12px;
-  text-align: center;
   margin-bottom: 40px;
 }
 
@@ -333,47 +248,54 @@ html, body {
 
 .theatre-content {
   display: flex;
-  justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
-}
-
-.theatre-content > div {
-  flex: 1;
-  min-width: 220px;
-  margin-bottom: 20px;
 }
 
 .album-grid {
   display: flex;
   gap: 15px;
-  margin-bottom: 15px;
 }
 
 .album-box {
   width: 110px;
   height: 150px;
   border: 3px solid var(--blue2);
-  border-radius: 6px;
-  background: #fff;
 }
 
-.rules-list {
-  padding-left: 20px;
-  margin-bottom: 10px;
+/* FAQ */
+.faq-page {
+  text-align: left;
 }
 
-.rules-list li {
-  margin-bottom: 6px;
+.faq-item {
+  border-bottom: 1px solid #ddd;
 }
 
-.programs-list {
-  padding-left: 18px;
+.question {
+  background: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 0;
 }
 
-.programs-list li {
-  margin-bottom: 6px;
+.answer {
+  display: none;
 }
 
+.answer.open {
+  display: block;
+}
 
+/* GMAIL */
+.gmail-tooltip {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
 
+.gmail-tooltip img {
+  width: 55px;
+  border-radius: 50%;
+}
