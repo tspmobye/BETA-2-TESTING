@@ -325,16 +325,9 @@ html, body {
   margin-bottom: 40px;
 }
 
-.theatre-title {
-  font-size: 3rem;
-  font-weight: 800;
+.theatre-hero h2,
+.theatre-hero p {
   color: white;
-  margin-bottom: 5px;
-}
-
-.theatre-subtitle {
-  color: white;
-  font-size: 1.1rem;
 }
 
 .theatre-content {
@@ -344,20 +337,16 @@ html, body {
   flex-wrap: wrap;
 }
 
-.theatre-column {
+.theatre-content > div {
   flex: 1;
   min-width: 220px;
-}
-
-.theatre-heading {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .album-grid {
   display: flex;
   gap: 15px;
+  margin-bottom: 15px;
 }
 
 .album-box {
@@ -370,10 +359,11 @@ html, body {
 
 .rules-list {
   padding-left: 20px;
+  margin-bottom: 10px;
 }
 
 .rules-list li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .programs-list {
