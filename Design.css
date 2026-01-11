@@ -375,6 +375,7 @@ html, body {
   line-height: 1.8;
   margin: 0 auto;
   padding: 0;
+  text-align: left;
 }
 
 .rules-list {
@@ -422,6 +423,7 @@ html, body {
   width: 55px;
   border-radius: 50%;
 }
+
 
 
 
