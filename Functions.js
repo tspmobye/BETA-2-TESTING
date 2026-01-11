@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.getElementById("searchForm");
   const searchInput = document.getElementById("searchInput");
 
+  const noResultsSection = document.getElementById("no-results");
+  const searchTermSpan = document.getElementById("search-term");
+
   const track = document.querySelector(".carousel-track");
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
@@ -68,16 +71,55 @@ document.addEventListener("DOMContentLoaded", () => {
     club.addEventListener("click", () => showSection(club.dataset.page))
   );
 
-  // SEARCH
+  // SEARCH (CLUB PAGE / RESULTS / NO RESULTS)
   if (searchForm && searchInput) {
     searchForm.addEventListener("submit", e => {
       e.preventDefault();
+
       const query = searchInput.value.trim().toLowerCase();
       if (!query) return;
-      const found = Array.from(sections).find(sec =>
-        sec.id.toLowerCase().includes(query)
+
+      const resultsGrid = document.getElementById("results-grid");
+      const resultsTerm = document.getElementById("results-term");
+      const noResultsTerm = document.getElementById("search-term");
+
+      // 1️⃣ Exact section match (direct club page)
+      const exactSection = Array.from(sections).find(
+        sec => sec.id.toLowerCase() === query
       );
-      if (found) showSection(found.id);
+
+      if (exactSection) {
+        showSection(exactSection.id);
+        searchInput.value = "";
+        return;
+      }
+
+      // 2️⃣ Match clubs by displayed name
+      const matchedClubs = Array.from(clubs).filter(club =>
+        club.textContent.toLowerCase().includes(query)
+      );
+
+      if (matchedClubs.length > 0) {
+        resultsGrid.innerHTML = "";
+        resultsTerm.textContent = query;
+
+        matchedClubs.forEach(club => {
+          const clone = club.cloneNode(true);
+
+          clone.addEventListener("click", () => {
+            showSection(club.dataset.page);
+          });
+
+          resultsGrid.appendChild(clone);
+        });
+
+        showSection("search-results");
+      } else {
+        // 3️⃣ No results
+        noResultsTerm.textContent = query;
+        showSection("no-results");
+      }
+
       searchInput.value = "";
     });
   }
@@ -133,4 +175,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // INIT
   showSection("home");
+});      carouselIndex = (carouselIndex + 1) % cards.length;
+      moveCarousel();
+    });
+
+    window.addEventListener("resize", () => {
+      if (document.getElementById("home").classList.contains("active")) {
+        moveCarousel();
+      }
+    });
+  }
+
+  // FAQS
+  document.querySelectorAll(".question").forEach(q => {
+    q.addEventListener("click", () => {
+      q.classList.toggle("active");
+      q.nextElementSibling.classList.toggle("open");
+    });
+  });
+
+  // GMAIL
+  const gmailIcon = document.querySelector(".gmail-tooltip img");
+  if (gmailIcon) {
+    gmailIcon.addEventListener("click", () => {
+      const email = "example@gmail.com";
+      window.location.href = `mailto:${email}`;
+    });
+  }
+
+  // INIT
+  showSection("home");
 });
+
