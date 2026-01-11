@@ -1,3 +1,4 @@
+// CORE
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".menu button");
   const sections = document.querySelectorAll(".section");
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let carouselIndex = 0;
   let carouselInterval = null;
 
+  // CAROUSEL
   function moveCarousel() {
     if (!document.getElementById("home").classList.contains("active")) return;
     const cardWidth = cards[0]?.offsetWidth || 0;
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // SECTIONS
   function showSection(id) {
     sections.forEach(section => {
       section.classList.toggle("active", section.id === id);
@@ -45,8 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     window.scrollTo({ top: 0, behavior: "smooth" });
-    
-    // CAROUSEL
+
     if (id === "home") {
       startCarousel();
       if (track) track.parentElement.style.display = "flex";
@@ -80,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // BACK BUTTONS 
+  // BACK BUTTONS
   document.body.addEventListener("click", e => {
     if (e.target.classList.contains("back-btn")) {
       e.preventDefault();
@@ -108,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-  
+
   // FAQS
   document.querySelectorAll(".question").forEach(q => {
     q.addEventListener("click", () => {
@@ -118,14 +120,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // GMAIL
-  const gmailIcon = document.querySelector('.gmail-tooltip img');
+  const gmailIcon = document.querySelector(".gmail-tooltip img");
   if (gmailIcon) {
-    gmailIcon.addEventListener('click', () => {
-      const email = 'example@gmail.com'; // Replace with your email
+    gmailIcon.addEventListener("click", () => {
+      const email = "example@gmail.com";
       window.location.href = `mailto:${email}`;
     });
   }
 
-  // INITIAL VIEW
+  // INIT
   showSection("home");
 });
