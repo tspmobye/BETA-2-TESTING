@@ -319,10 +319,11 @@ body {
   overflow: hidden;
   padding: 0;
   transition: max-height 0.4s ease, padding 0.4s ease;
+  will-change: max-height;
 }
 
 .answer.open {
-  max-height: 500px;
+  max-height: 1000px;
   padding: 12px 0 10px;
 }
 
@@ -430,6 +431,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
