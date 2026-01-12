@@ -14,21 +14,16 @@ if (searchForm) {
   });
 }
 
-/* ===== CAROUSEL ELEMENTS ===== */
-const carousel = document.querySelector(".carousel");
-const track = document.querySelector(".carousel-track");
-const prevBtn = document.querySelector(".carousel-btn.prev");
-const nextBtn = document.querySelector(".carousel-btn.next");
-
-let carouselInterval = null;
-
-/* ===== CAROUSEL FIXED & INFINITE (MULTI-CARD) ===== */
+/* ===== CAROUSEL ===== */
 if (carousel && track && prevBtn && nextBtn) {
 
   let cards = Array.from(track.children);
   let index = 1;
+  let carouselInterval = null;
 
-  /* Clone first & last cards */
+  const cardWidth = () => cards[0].offsetWidth;
+
+  /* Clone first & last card ONLY */
   const firstClone = cards[0].cloneNode(true);
   const lastClone = cards[cards.length - 1].cloneNode(true);
 
@@ -40,23 +35,7 @@ if (carousel && track && prevBtn && nextBtn) {
 
   cards = Array.from(track.children);
 
-  // Calculate how many cards fit in view
-  const extra = Math.ceil(carousel.offsetWidth / cards[0].offsetWidth);
-
-  // Clone extra cards to fill last slide
-  for (let i = 0; i < extra; i++) {
-    const clone = cards[i].cloneNode(true);
-    clone.classList.add("clone");
-    track.appendChild(clone);
-  }
-
-  cards = Array.from(track.children);
-
   /* Update position */
-  function cardWidth() {
-    return cards[0].offsetWidth;
-  }
-
   function updateCarousel(noAnim = false) {
     track.style.transition = noAnim ? "none" : "transform 0.5s ease-in-out";
     track.style.transform = `translateX(-${index * cardWidth()}px)`;
@@ -78,7 +57,7 @@ if (carousel && track && prevBtn && nextBtn) {
   /* Infinite loop reset */
   track.addEventListener("transitionend", () => {
     if (cards[index].classList.contains("clone")) {
-      index = index === 0 ? cards.length - 2 - extra : 1;
+      index = index === 0 ? cards.length - 2 : 1;
       updateCarousel(true);
     }
   });
@@ -105,7 +84,7 @@ if (carousel && track && prevBtn && nextBtn) {
 
   startCarousel();
 }
-
+	
   /* ===== SECTION CONTROL ===== */
   function showSection(id) {
     sections.forEach(section =>
@@ -218,6 +197,7 @@ if (carousel && track && prevBtn && nextBtn) {
   startCarousel();
 
 });
+
 
 
 
