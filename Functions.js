@@ -7,91 +7,94 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.getElementById("searchForm");
   const searchInput = document.getElementById("searchInput");
 
-/* ===== PREVENT SEARCH FORM SUBMIT ===== */
-if (searchForm) {
-  searchForm.addEventListener("submit", e => {
-    e.preventDefault();
-  });
-}
-
-/* ===== CAROUSEL ===== */
-const carousel = document.querySelector(".carousel");
-const track = document.querySelector(".carousel-track");
-const prevBtn = document.querySelector(".carousel-btn.prev");
-const nextBtn = document.querySelector(".carousel-btn.next");
-
-if (carousel && track && prevBtn && nextBtn) {
-
-  let cards = Array.from(track.children);
-  let index = 1;
-  let carouselInterval = null;
-
-  const cardWidth = () => cards[0].offsetWidth;
-
-  /* Clone first and last cards */
-  const firstClone = cards[0].cloneNode(true);
-  const lastClone = cards[cards.length - 1].cloneNode(true);
-
-  firstClone.classList.add("clone");
-  lastClone.classList.add("clone");
-
-  track.appendChild(firstClone);
-  track.insertBefore(lastClone, cards[0]);
-
-  cards = Array.from(track.children);
-
-  /* Update position */
-  function updateCarousel(noAnim = false) {
-    track.style.transition = noAnim ? "none" : "transform 0.5s ease-in-out";
-    track.style.transform = `translateX(-${index * cardWidth()}px)`;
+  /* ===== PREVENT SEARCH FORM SUBMIT ===== */
+  if (searchForm) {
+    searchForm.addEventListener("submit", e => {
+      e.preventDefault();
+    });
   }
 
-  updateCarousel(true);
+  /* ===== CAROUSEL ELEMENTS ===== */
+  const carousel = document.querySelector(".carousel");
+  const track = document.querySelector(".carousel-track");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
 
-  /* Button controls */
-  nextBtn.addEventListener("click", () => {
-    index++;
-    updateCarousel();
-  });
+  /* ===== CAROUSEL CONTROLS (GLOBAL SAFE) ===== */
+  let startCarousel = () => {};
+  let stopCarousel = () => {};
 
-  prevBtn.addEventListener("click", () => {
-    index--;
-    updateCarousel();
-  });
+  /* ===== CAROUSEL ===== */
+  if (carousel && track && prevBtn && nextBtn) {
 
-  /* Infinite loop handling */
-  track.addEventListener("transitionend", () => {
-    if (cards[index].classList.contains("clone")) {
-      index = index === 0 ? cards.length - 2 : 1;
-      updateCarousel(true);
+    let cards = Array.from(track.children);
+    let index = 1;
+    let carouselInterval = null;
+
+    const cardWidth = () => cards[0].offsetWidth;
+
+    /* Clone first & last cards */
+    const firstClone = cards[0].cloneNode(true);
+    const lastClone = cards[cards.length - 1].cloneNode(true);
+
+    firstClone.classList.add("clone");
+    lastClone.classList.add("clone");
+
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, cards[0]);
+
+    cards = Array.from(track.children);
+
+    function updateCarousel(noAnim = false) {
+      track.style.transition = noAnim ? "none" : "transform 0.5s ease-in-out";
+      track.style.transform = `translateX(-${index * cardWidth()}px)`;
     }
-  });
 
-  /* Auto slide */
-  function startCarousel() {
-    if (carouselInterval) return;
-    carouselInterval = setInterval(() => {
+    updateCarousel(true);
+
+    /* Buttons */
+    nextBtn.addEventListener("click", () => {
       index++;
       updateCarousel();
-    }, 5000);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      index--;
+      updateCarousel();
+    });
+
+    /* Infinite loop */
+    track.addEventListener("transitionend", () => {
+      if (cards[index].classList.contains("clone")) {
+        index = index === 0 ? cards.length - 2 : 1;
+        updateCarousel(true);
+      }
+    });
+
+    /* Exposed controls */
+    startCarousel = () => {
+      if (carouselInterval) return;
+      carouselInterval = setInterval(() => {
+        index++;
+        updateCarousel();
+      }, 5000);
+    };
+
+    stopCarousel = () => {
+      clearInterval(carouselInterval);
+      carouselInterval = null;
+    };
+
+    carousel.addEventListener("mouseenter", stopCarousel);
+    carousel.addEventListener("mouseleave", startCarousel);
+
+    window.addEventListener("resize", () => {
+      updateCarousel(true);
+    });
+
+    startCarousel();
   }
 
-  function stopCarousel() {
-    clearInterval(carouselInterval);
-    carouselInterval = null;
-  }
-
-  carousel.addEventListener("mouseenter", stopCarousel);
-  carousel.addEventListener("mouseleave", startCarousel);
-
-  /* Resize fix */
-  window.addEventListener("resize", () => {
-    updateCarousel(true);
-  });
-
-  startCarousel();
-}
-	
   /* ===== SECTION CONTROL ===== */
   function showSection(id) {
     sections.forEach(section =>
@@ -104,13 +107,17 @@ if (carousel && track && prevBtn && nextBtn) {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    startCarousel();
+    if (id === "home") {
+      startCarousel();
+    } else {
+      stopCarousel();
+    }
 
     if (track) {
       track.parentElement.style.display = id === "home" ? "flex" : "none";
     }
   }
-	
+
   /* ===== MENU NAVIGATION ===== */
   buttons.forEach(btn =>
     btn.addEventListener("click", () =>
@@ -125,7 +132,7 @@ if (carousel && track && prevBtn && nextBtn) {
     )
   );
 
-  /* ===== SEARCH FUNCTIONALITY (FIXED) ===== */
+  /* ===== SEARCH FUNCTIONALITY ===== */
   const searchResultsSection = document.getElementById("search-results");
   const noResultsSection = document.getElementById("no-results");
   const resultsTerm = document.getElementById("results-term");
@@ -133,10 +140,9 @@ if (carousel && track && prevBtn && nextBtn) {
   const resultsGrid = document.getElementById("results-grid");
 
   if (searchInput) {
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.trim().toLowerCase();
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLowerCase();
 
-      // If empty, go back to clubs
       if (!query) {
         showSection("clubs");
         return;
@@ -149,15 +155,12 @@ if (carousel && track && prevBtn && nextBtn) {
 
       resultsGrid.innerHTML = "";
 
-      if (matchedClubs.length > 0) {
+      if (matchedClubs.length) {
         matchedClubs.forEach(club => {
           const clone = club.cloneNode(true);
-
-          // restore click behavior
           clone.addEventListener("click", () => {
             showSection(clone.dataset.page);
           });
-
           resultsGrid.appendChild(clone);
         });
 
@@ -169,7 +172,7 @@ if (carousel && track && prevBtn && nextBtn) {
       }
     });
   }
-	
+
   /* ===== BACK BUTTONS ===== */
   document.body.addEventListener("click", e => {
     if (
@@ -185,9 +188,7 @@ if (carousel && track && prevBtn && nextBtn) {
   document.querySelectorAll(".question").forEach(q => {
     q.addEventListener("click", () => {
       q.classList.toggle("active");
-      const answer = q.nextElementSibling;
-
-      answer.classList.toggle("open");
+      q.nextElementSibling.classList.toggle("open");
     });
   });
 
@@ -203,19 +204,3 @@ if (carousel && track && prevBtn && nextBtn) {
   showSection("home");
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
