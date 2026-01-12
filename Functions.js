@@ -130,23 +130,60 @@ if (carousel && track && prevBtn && nextBtn) {
     )
   );
 
- /* ===== SEARCH ===== */
-  if (searchForm && searchInput) {
-    searchForm.addEventListener("submit", e => {
-      e.preventDefault();
-      const query = searchInput.value.trim().toLowerCase();
-      if (!query) return;
+  /* ===== SEARCH FUNCTIONALITY ===== */
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
 
-      const found = Array.from(sections).find(sec =>
-        sec.id.toLowerCase().includes(query)
-      );
+    const searchResultsSection = document.getElementById("search-results");
+    const noResultsSection = document.getElementById("no-results");
+    const resultsTerm = document.getElementById("results-term");
+    const searchTerm = document.getElementById("search-term");
+    const resultsGrid = document.getElementById("results-grid");
 
-      if (found) showSection(found.id);
+    // All club sections/items to search
+    const clubs = document.querySelectorAll(".club"); // make sure each club has data-page or data-name
 
-      searchInput.value = "";
-    });
-  }
+    function showSection(section) {
+      // Hide all sections first
+      document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+      section.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
+    if (searchForm && searchInput) {
+      searchForm.addEventListener("submit", e => {
+        e.preventDefault();
+
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) return;
+
+        // Filter clubs by data-name or data-page
+        const matchedClubs = Array.from(clubs).filter(club => {
+          const name = club.dataset.name || club.dataset.page || "";
+          return name.toLowerCase().includes(query);
+        });
+
+        resultsGrid.innerHTML = ""; // clear previous results
+
+        if (matchedClubs.length > 0) {
+          matchedClubs.forEach(club => {
+            const clone = club.cloneNode(true);
+            resultsGrid.appendChild(clone);
+          });
+
+          resultsTerm.textContent = query;
+          showSection(searchResultsSection);
+        } else {
+          searchTerm.textContent = query;
+          showSection(noResultsSection);
+        }
+
+        searchInput.value = "";
+      });
+    }
+  });
+	
   /* ===== BACK BUTTONS ===== */
   document.body.addEventListener("click", e => {
     if (
@@ -187,5 +224,6 @@ if (carousel && track && prevBtn && nextBtn) {
   startCarousel();
 
 });
+
 
 
