@@ -33,6 +33,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* NAVIGATION */
@@ -474,6 +475,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
