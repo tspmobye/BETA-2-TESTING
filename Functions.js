@@ -159,12 +159,20 @@ if (carousel && track && prevBtn && nextBtn) {
   });
 
   /* ===== FAQ TOGGLE ===== */
-  document.querySelectorAll(".question").forEach(q => {
-    q.addEventListener("click", () => {
-      q.classList.toggle("active");
-      q.nextElementSibling.classList.toggle("open");
-    });
-  });
+	document.querySelectorAll(".question").forEach(q => {
+ 		q.addEventListener("click", () => {
+   		q.classList.toggle("active");
+   		const answer = q.nextElementSibling;
+
+   		if (answer.style.maxHeight) {
+    		answer.style.maxHeight = null;
+     		answer.style.padding = "0";
+   		} else {
+     		answer.style.maxHeight = answer.scrollHeight + "px";
+     		answer.style.padding = "12px 0 10px";
+   		}
+ 		});
+	});
 
   /* ===== GMAIL LINK ===== */
   const gmailIcon = document.querySelector(".gmail-tooltip img");
@@ -179,4 +187,5 @@ if (carousel && track && prevBtn && nextBtn) {
   startCarousel();
 
 });
+
 
