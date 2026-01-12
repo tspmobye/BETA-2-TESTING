@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     )
   );
 
-  /* ===== SEARCH ===== */
+ /* ===== SEARCH ===== */
   if (searchForm && searchInput) {
     searchForm.addEventListener("submit", e => {
       e.preventDefault();
@@ -162,5 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ===== INIT ===== */
   showSection("home");
+  startCarousel();
 
 });
