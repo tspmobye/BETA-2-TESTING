@@ -159,6 +159,7 @@ body {
 }
 
 .carousel {
+  position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -168,6 +169,7 @@ body {
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 
 .carousel-btn {
@@ -175,6 +177,8 @@ body {
   border: none;
   font-size: 2rem;
   cursor: pointer;
+  padding: 10px;
+  z-index: 2;
 }
 
 .club-card {
@@ -182,23 +186,7 @@ body {
   padding: 30px;
   background: #f8f9fa;
   text-align: center;
-}
-
-.club-card img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 15px;
-}
-
-.club-card h4 {
-  margin: 10px 0;
-  color: #000;
-}
-
-.club-card p {
-  color: #555;
+  flex-shrink: 0; /* IMPORTANT */
 }
 
 /* ABOUT */
@@ -422,3 +410,4 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
