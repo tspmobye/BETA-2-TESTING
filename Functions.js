@@ -15,6 +15,11 @@ if (searchForm) {
 }
 
 /* ===== CAROUSEL ===== */
+const carousel = document.querySelector(".carousel");
+const track = document.querySelector(".carousel-track");
+const prevBtn = document.querySelector(".carousel-btn.prev");
+const nextBtn = document.querySelector(".carousel-btn.next");
+
 if (carousel && track && prevBtn && nextBtn) {
 
   let cards = Array.from(track.children);
@@ -23,7 +28,7 @@ if (carousel && track && prevBtn && nextBtn) {
 
   const cardWidth = () => cards[0].offsetWidth;
 
-  /* Clone first & last card ONLY */
+  /* Clone first and last cards */
   const firstClone = cards[0].cloneNode(true);
   const lastClone = cards[cards.length - 1].cloneNode(true);
 
@@ -43,7 +48,7 @@ if (carousel && track && prevBtn && nextBtn) {
 
   updateCarousel(true);
 
-  /* Buttons */
+  /* Button controls */
   nextBtn.addEventListener("click", () => {
     index++;
     updateCarousel();
@@ -54,7 +59,7 @@ if (carousel && track && prevBtn && nextBtn) {
     updateCarousel();
   });
 
-  /* Infinite loop reset */
+  /* Infinite loop handling */
   track.addEventListener("transitionend", () => {
     if (cards[index].classList.contains("clone")) {
       index = index === 0 ? cards.length - 2 : 1;
@@ -80,7 +85,9 @@ if (carousel && track && prevBtn && nextBtn) {
   carousel.addEventListener("mouseleave", startCarousel);
 
   /* Resize fix */
-  window.addEventListener("resize", () => updateCarousel(true));
+  window.addEventListener("resize", () => {
+    updateCarousel(true);
+  });
 
   startCarousel();
 }
@@ -194,9 +201,9 @@ if (carousel && track && prevBtn && nextBtn) {
 
   /* ===== INIT ===== */
   showSection("home");
-  startCarousel();
 
 });
+
 
 
 
