@@ -108,6 +108,13 @@ if (carousel && track && prevBtn && nextBtn) {
 
   /* ===== SECTION CONTROL ===== */
   function showSection(id) {
+  sections.forEach(section => {
+    if (section.classList.contains("active")) {
+      section.classList.remove("active");
+    }
+  });
+
+  setTimeout(() => {
     sections.forEach(section =>
       section.classList.toggle("active", section.id === id)
     );
@@ -121,6 +128,7 @@ if (carousel && track && prevBtn && nextBtn) {
     }
 
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 150);
   }
 
   /* ===== MENU NAVIGATION ===== */
@@ -216,6 +224,7 @@ if (carousel && track && prevBtn && nextBtn) {
   startCarousel();
 
 });
+
 
 
 
