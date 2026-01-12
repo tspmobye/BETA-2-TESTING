@@ -116,7 +116,7 @@ body {
 /* SECTIONS */
 .section {
   display: none;
-  padding: 100px 16px 80px;
+  padding: 40px 8% 120px;
   text-align: center;
 }
 
@@ -139,7 +139,7 @@ body {
 .welcome {
   font-size: 1.8rem;
   font-weight: 800;
-  color: vr(--blue2);
+  color: var(--blue2);
   margin: 20px 0 8px;
 }
 
@@ -476,6 +476,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
