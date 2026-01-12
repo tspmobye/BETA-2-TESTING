@@ -120,7 +120,7 @@ if (carousel && track && prevBtn && nextBtn) {
       carousel.style.display = id === "home" ? "flex" : "none";
     }
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "auto" });
   }
 	
   /* ===== MENU NAVIGATION ===== */
@@ -216,6 +216,7 @@ if (carousel && track && prevBtn && nextBtn) {
   startCarousel();
 
 });
+
 
 
 
