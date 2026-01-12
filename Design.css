@@ -156,66 +156,70 @@ body {
   color: var(--blue2);
 }
 
-/* CAROUSEL */  
-.carousel-container {  
-  margin-top: 40px;  
-}  
-  
-.carousel {  
-  position: relative;  
-  display: flex;  
-  align-items: center;  
-  overflow: hidden;  
-  padding: 0 50px;  
-}  
-  
-.carousel-track {  
-  display: flex;  
-  transition: transform 0.5s ease-in-out;  
-  will-change: transform;  
-}  
-  
-.carousel-btn {  
-  position: absolute;  
-  top: 50%;  
-  transform: translateY(-50%);  
-  background: none;  
-  border: none;  
-  font-size: 2rem;  
-  cursor: pointer;  
-  z-index: 10;  
-}  
-  
-.carousel-btn.prev {  
-  left: 10px;  
-}  
-  
-.carousel-btn.next {  
-  right: 10px;  
-}  
-  
-.club-card {  
-  min-width: 250px;  
-  padding: 30px;  
-  background: #f8f9fa;  
-  text-align: center;  
-  flex-shrink: 0;   
-}  
-  
-.club-avatar {  
-  width: 60px;  
-  height: 60px;  
-  margin: 0 auto 12px;  
-  display: flex;  
-  align-items: center;  
-  justify-content: center;  
-}  
-  
-.club-avatar img {  
-  max-width: 100%;  
-  max-height: 100%;  
-  object-fit: contain;  
-}  
+/* CAROUSEL */
+.carousel-container {
+  margin-top: 40px;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 50px;
+}
+
+/* Track */
+.carousel-track {
+  display: flex;
+  align-items: stretch;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+/* Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* Club card */
+.club-card {
+  min-width: 220px;
+  padding: 16px;
+  background: #f8f9fa;
+  text-align: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* IMAGE CONTROL */
+.club-card img {
+  width: 100%;
+  max-width: 120px;   
+  max-height: 120px;  
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Text */
+.club-card h3 {
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
 
 /* ABOUT */
 .about-container {
@@ -452,6 +456,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
