@@ -290,12 +290,15 @@ body {
   margin-bottom: 14px;
 }
 
+/* BACK BUTTON (ALL CLUB PAGES) */
 .back-btn {
-  margin-top: 30px;
+  display: block;
+  margin: 20px 0 0 20px;
   background: none;
   border: none;
   font-weight: 600;
   cursor: pointer;
+  text-align: left;
 }
 
 /* FAQ */
@@ -446,6 +449,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
