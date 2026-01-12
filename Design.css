@@ -12,6 +12,8 @@
 html,
 body {
   width: 100%;
+  margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
   background: #fff;
   overflow-x: hidden;
@@ -114,7 +116,7 @@ body {
 .section {
   opacity: 0;
   visibility: hidden;
-  padding: 40px 8% 120px;
+  padding: 16px 8% 120px;
   text-align: center;
   pointer-events: none;
   transition: opacity 0.2s ease;
@@ -456,6 +458,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
