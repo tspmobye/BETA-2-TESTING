@@ -7,81 +7,83 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.getElementById("searchForm");
   const searchInput = document.getElementById("searchInput");
 
-/* ===== CAROUSEL ELEMENTS ===== */
-const track = document.querySelector(".carousel-track");
-const prevBtn = document.querySelector(".carousel-btn.prev");
-const nextBtn = document.querySelector(".carousel-btn.next");
+  /* ===== CAROUSEL ELEMENTS ===== */
+  const carousel = document.querySelector(".carousel");
+  const track = document.querySelector(".carousel-track");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
 
-let cards = Array.from(document.querySelectorAll(".club-card"));
-let index = 1;
-let interval = null;
+  let carouselInterval = null;
 
-/* ===== CLONE FOR INFINITE LOOP ===== */
-const firstClone = cards[0].cloneNode(true);
-const lastClone = cards[cards.length - 1].cloneNode(true);
+  /* ===== CAROUSEL SETUP (FIXED & INFINITE) ===== */
+  if (carousel && track && prevBtn && nextBtn) {
 
-firstClone.classList.add("clone");
-lastClone.classList.add("clone");
+    let cards = Array.from(track.children);
+    let index = 1;
 
-track.appendChild(firstClone);
-track.insertBefore(lastClone, cards[0]);
+    /* Clone first & last cards */
+    const firstClone = cards[0].cloneNode(true);
+    const lastClone = cards[cards.length - 1].cloneNode(true);
 
-cards = Array.from(document.querySelectorAll(".club-card"));
+    firstClone.classList.add("clone");
+    lastClone.classList.add("clone");
 
-/* ===== CARD WIDTH ===== */
-function getCardWidth() {
-  return cards[0].offsetWidth;
-}
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, cards[0]);
 
-/* ===== POSITION ===== */
-function setPosition(noAnimation = false) {
-  if (noAnimation) track.style.transition = "none";
-  else track.style.transition = "transform 0.5s ease-in-out";
+    cards = Array.from(track.children);
 
-  track.style.transform = `translateX(-${index * getCardWidth()}px)`;
-}
+    function cardWidth() {
+      return cards[0].offsetWidth;
+    }
 
-setPosition(true);
+    function updateCarousel(noAnim = false) {
+      track.style.transition = noAnim ? "none" : "transform 0.5s ease-in-out";
+      track.style.transform = `translateX(-${index * cardWidth()}px)`;
+    }
 
-/* ===== BUTTON CONTROLS ===== */
-nextBtn.addEventListener("click", () => {
-  if (index >= cards.length - 1) return;
-  index++;
-  setPosition();
-});
+    updateCarousel(true);
 
-prevBtn.addEventListener("click", () => {
-  if (index <= 0) return;
-  index--;
-  setPosition();
-});
+    /* Buttons */
+    nextBtn.addEventListener("click", () => {
+      index++;
+      updateCarousel();
+    });
 
-/* ===== LOOP RESET ===== */
-track.addEventListener("transitionend", () => {
-  if (cards[index].classList.contains("clone")) {
-    if (index === cards.length - 1) index = 1;
-    if (index === 0) index = cards.length - 2;
-    setPosition(true);
+    prevBtn.addEventListener("click", () => {
+      index--;
+      updateCarousel();
+    });
+
+    /* Infinite loop reset */
+    track.addEventListener("transitionend", () => {
+      if (cards[index].classList.contains("clone")) {
+        index = index === 0 ? cards.length - 2 : 1;
+        updateCarousel(true);
+      }
+    });
+
+    /* Auto slide */
+    function startCarousel() {
+      if (carouselInterval) return;
+      carouselInterval = setInterval(() => {
+        index++;
+        updateCarousel();
+      }, 5000);
+    }
+
+    function stopCarousel() {
+      clearInterval(carouselInterval);
+      carouselInterval = null;
+    }
+
+    carousel.addEventListener("mouseenter", stopCarousel);
+    carousel.addEventListener("mouseleave", startCarousel);
+
+    window.addEventListener("resize", () => updateCarousel(true));
+
+    startCarousel();
   }
-});
-
-/* ===== AUTO SLIDE ===== */
-function startCarousel() {
-  interval = setInterval(() => {
-    index++;
-    setPosition();
-  }, 5000);
-}
-
-function stopCarousel() {
-  clearInterval(interval);
-}
-
-startCarousel();
-
-/* Pause on hover (optional) */
-track.parentElement.addEventListener("mouseenter", stopCarousel);
-track.parentElement.addEventListener("mouseleave", startCarousel);
 
   /* ===== SECTION CONTROL ===== */
   function showSection(id) {
@@ -93,13 +95,11 @@ track.parentElement.addEventListener("mouseleave", startCarousel);
       btn.classList.toggle("active", btn.dataset.page === id)
     );
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    startCarousel();
-
-    if (track) {
-      track.parentElement.style.display = id === "home" ? "flex" : "none";
+    if (carousel) {
+      carousel.style.display = id === "home" ? "flex" : "none";
     }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   /* ===== MENU NAVIGATION ===== */
@@ -144,22 +144,6 @@ track.parentElement.addEventListener("mouseleave", startCarousel);
     }
   });
 
-  /* ===== CAROUSEL BUTTONS ===== */
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", () => {
-      carouselIndex = (carouselIndex - 1 + cards.length) % cards.length;
-      moveCarousel();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      carouselIndex = (carouselIndex + 1) % cards.length;
-      moveCarousel();
-    });
-  }
-
-  /* ===== RESIZE FIX ===== */
-  window.addEventListener("resize", moveCarousel);
-
   /* ===== FAQ TOGGLE ===== */
   document.querySelectorAll(".question").forEach(q => {
     q.addEventListener("click", () => {
@@ -178,7 +162,5 @@ track.parentElement.addEventListener("mouseleave", startCarousel);
 
   /* ===== INIT ===== */
   showSection("home");
-  startCarousel();
 
 });
-
