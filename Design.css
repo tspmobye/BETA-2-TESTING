@@ -163,7 +163,7 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
-  border-radius: 20px;
+  padding: 0 50px;
 }
 
 .carousel-track {
@@ -173,12 +173,22 @@ body {
 }
 
 .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  padding: 10px;
-  z-index: 2;
+  z-index: 10;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
 }
 
 .club-card {
@@ -410,4 +420,5 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
