@@ -156,10 +156,14 @@ body {
 
 /* CAROUSEL */
 .carousel-container {
-  margin-top: 40px;
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .carousel {
+  position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -168,21 +172,53 @@ body {
 
 .carousel-track {
   display: flex;
+  flex-wrap: nowrap;
   transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 
+/* BUTTONS */
 .carousel-btn {
-  background: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
   border: none;
   font-size: 2rem;
+  color: #fff;
   cursor: pointer;
+  z-index: 10;
+
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* CLUB CARD */
 .club-card {
-  min-width: 250px;
+  flex: 0 0 auto;
+  width: 250px;
   padding: 30px;
   background: #f8f9fa;
   text-align: center;
+  border-radius: 15px;
+  margin: 0 10px;
 }
 
 .club-card img {
@@ -437,6 +473,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
