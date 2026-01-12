@@ -142,7 +142,7 @@ if (carousel && track && prevBtn && nextBtn) {
     const resultsGrid = document.getElementById("results-grid");
 
     // All club sections/items to search
-    const clubs = document.querySelectorAll(".club-card"); // make sure each club has data-page or data-name
+    const clubs = document.querySelectorAll(".club"); // make sure each club has data-page or data-name
 
     function showSection(section) {
       // Hide all sections first
@@ -218,6 +218,7 @@ if (carousel && track && prevBtn && nextBtn) {
   startCarousel();
 
 });
+
 
 
 
