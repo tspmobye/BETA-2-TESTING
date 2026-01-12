@@ -115,7 +115,6 @@ body {
 /* SECTIONS */
 .section {
   display: none;
-  padding: 16px 8% 60px;
   text-align: center;
 }
 
@@ -475,6 +474,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
