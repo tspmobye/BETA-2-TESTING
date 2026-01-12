@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.getElementById("searchForm");
   const searchInput = document.getElementById("searchInput");
 
+/* ===== PREVENT SEARCH FORM SUBMIT ===== */
+if (searchForm) {
+  searchForm.addEventListener("submit", e => {
+    e.preventDefault();
+  });
+}
+
 /* ===== CAROUSEL ELEMENTS ===== */
 const carousel = document.querySelector(".carousel");
 const track = document.querySelector(".carousel-track");
@@ -209,6 +216,7 @@ if (carousel && track && prevBtn && nextBtn) {
   startCarousel();
 
 });
+
 
 
 
