@@ -295,8 +295,14 @@ body {
 
 .faq-item {
   border-bottom: 1px solid #ddd;
+  padding: 10px 0;
 }
 
+.faq-section {
+  margin-bottom: 60px;
+}
+
+/* Question */
 .question {
   width: 100%;
   text-align: left;
@@ -307,9 +313,10 @@ body {
   cursor: pointer;
 }
 
+/* Answer */
 .answer {
   display: none;
-  padding: 0 0 10px;
+  padding: 12px 0 10px;
 }
 
 .answer.open {
@@ -420,5 +427,6 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
