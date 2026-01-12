@@ -116,7 +116,7 @@ body {
 .section {
   opacity: 0;
   visibility: hidden;
-  padding: 0px 8% 120px;
+  padding: 16px 8% 60px;
   text-align: center;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -437,6 +437,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
