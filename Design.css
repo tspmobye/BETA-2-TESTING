@@ -158,25 +158,23 @@ body {
   margin-top: 40px;
 }
 
-/* Outer carousel wrapper */
 .carousel {
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
   padding: 0 50px;
-  height: 220px;
 }
 
-/* Sliding track */
+/* Track */
 .carousel-track {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
 }
 
-/* Navigation buttons */
+/* Buttons */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -188,19 +186,12 @@ body {
   z-index: 10;
 }
 
-.carousel-btn.prev {
-  left: 10px;
-}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
 
-.carousel-btn.next {
-  right: 10px;
-}
-
-/* Individual club cards */
+/* Club card */
 .club-card {
   min-width: 220px;
-  max-width: 220px;
-  height: 180px;
   padding: 16px;
   background: #f8f9fa;
   text-align: center;
@@ -210,27 +201,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-/* Club logo container */
-.club-avatar {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Club logo image */
-.club-avatar img {
-  max-width: 100%;
-  max-height: 100%;
+/* IMAGE CONTROL */
+.club-card img {
+  width: 100%;
+  max-width: 120px;  
+  max-height: 120px; 
   object-fit: contain;
+  margin-bottom: 10px;
 }
 
-/* Club name */
+/* Text */
 .club-card h3 {
   font-size: 0.95rem;
   line-height: 1.2;
@@ -471,6 +453,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
