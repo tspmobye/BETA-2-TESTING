@@ -107,17 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    if (id === "home") {
-      startCarousel();
-    } else {
-      stopCarousel();
-    }
-
-    if (track) {
-      track.parentElement.style.display = id === "home" ? "flex" : "none";
-    }
-  }
-
   /* ===== MENU NAVIGATION ===== */
   buttons.forEach(btn =>
     btn.addEventListener("click", () =>
@@ -204,3 +193,4 @@ document.addEventListener("DOMContentLoaded", () => {
   showSection("home");
 
 });
+
