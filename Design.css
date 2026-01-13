@@ -116,7 +116,7 @@ body {
 /* SECTIONS */
 .section {
   display: none;
-  padding: 40px 8% 120px;
+  padding: 40px 80px 120px;
   text-align: center;
 }
 
@@ -476,6 +476,7 @@ body {
   width: 55px;
   border-radius: 50%;
     }
+
 
 
 
