@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   /* ===== MENU NAVIGATION ===== */
   buttons.forEach(btn =>
@@ -193,4 +194,5 @@ document.addEventListener("DOMContentLoaded", () => {
   showSection("home");
 
 });
+
 
