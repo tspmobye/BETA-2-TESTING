@@ -477,6 +477,52 @@ body {
   border-radius: 50%;
     }
 
+/* GRADIENT BACKGROUND FOR MAIN PAGES ONLY */
+.section.active:not(.club-page) {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    #cfe9ff 60%,
+    #77b9f0 80%,
+    #2c8fe0 100%
+  );
+  min-height: 100vh;
+}
+
+/* NO RESULTS PAGE STYLE */
+#no-results {
+  text-align: left;
+  padding: 60px 10%;
+}
+
+#no-results h2 {
+  font-size: 2.2rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+#no-results p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+#no-results ul {
+  margin: 10px 0 30px 20px;
+  line-height: 1.8;
+}
+
+#no-results a {
+  color: var(--blue3);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#no-results a:hover {
+  text-decoration: underline;
+}
+
+
 
 
 
